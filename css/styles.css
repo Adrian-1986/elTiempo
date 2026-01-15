@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, #87ceeb 0%, #e0f6ff 100%);
+  color: #222;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background-image: 
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><defs><style>.cloud{fill:white;opacity:0.7;}</style></defs><ellipse class="cloud" cx="150" cy="80" rx="80" ry="50"/><ellipse class="cloud" cx="180" cy="80" rx="100" ry="60"/><ellipse class="cloud" cx="500" cy="150" rx="90" ry="55"/><ellipse class="cloud" cx="540" cy="150" rx="110" ry="65"/><ellipse class="cloud" cx="850" cy="100" rx="75" ry="45"/><ellipse class="cloud" cx="880" cy="100" rx="95" ry="55"/></svg>');
+  background-repeat: repeat-x;
+  background-size: 1000px 300px;
+  animation: moveclouds 30s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes moveclouds {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.header {
+  background: #2196f3;
+  color: white;
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.main {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.current-weather-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.weather-icon-big {
+  font-size: 6rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.weather-info {
+  text-align: left;
+}
+
+.weather-info h2 {
+  margin-bottom: 0.5rem;
+}
+
+.weather-description {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.weather-info p {
+  font-size: 1.1rem;
+  margin: 0.3rem 0;
+}
+
+.hourly-list,
+.daily-list {
+  display: flex;
+  overflow-x: auto;
+  gap: 0.75rem;
+}
+
+.hour,
+.day {
+  min-width: 80px;
+  text-align: center;
+  background: #e3f2fd;
+  padding: 0.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.8rem;
+  color: #666;
+}
